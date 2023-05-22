@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DegreeProject.DB", "DegreeProject.DB\DegreeProject.DB.csproj", "{B846F05C-E0E4-435D-AFBC-CC8211540CDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DegreeProject.DB", "DegreeProject.DB\DegreeProject.DB.csproj", "{B846F05C-E0E4-435D-AFBC-CC8211540CDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DegreeProject.BL", "DegreeProject.BL\DegreeProject.BL.csproj", "{09660E95-9489-46C7-93D6-3746ACFA66F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B846F05C-E0E4-435D-AFBC-CC8211540CDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B846F05C-E0E4-435D-AFBC-CC8211540CDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B846F05C-E0E4-435D-AFBC-CC8211540CDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
