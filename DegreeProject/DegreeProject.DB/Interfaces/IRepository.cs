@@ -8,9 +8,9 @@ namespace DegreeProject.DB.Interfaces
 {
     public interface IRepository <T>
     {
-        T GetItemById(int Id);
-        void AddItem(T item);
-        void UpdateItem(T item);
-        void DeleteItem(T item);
+        Task<T> GetById(int Id);
+        Task Add(T item);
+        Task Update(T item);
+        Task Delete(T item);
     }
 }
