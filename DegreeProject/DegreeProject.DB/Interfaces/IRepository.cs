@@ -11,6 +11,6 @@ namespace DegreeProject.DB.Interfaces
         T GetItemById(int Id);
         void AddItem(T item);
         void UpdateItem(T item);
-        void DeleteItem(int Id);
+        void DeleteItem(T item);
     }
 }
