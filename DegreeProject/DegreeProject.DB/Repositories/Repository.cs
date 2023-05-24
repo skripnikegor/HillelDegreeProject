@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Repositories
 {
-    public class UsersRepository<T> : IRepository<T> where T : UserBase
+    public class Repository<T> : IRepository<T> where T : class
     {
         #region fields
         private readonly DbContext _dbContext;
         private readonly DbSet<T> _dbSet;
         #endregion
-        public UsersRepository(DbContext dbContext)
+        public Repository(DbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<T>();
@@ -42,6 +42,11 @@ namespace DegreeProject.DB.Repositories
         {
             _dbSet.Update(item);
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<T>> GetAll()
+        {
+            return _dbSet.ToList();
         }
         #endregion
     }
