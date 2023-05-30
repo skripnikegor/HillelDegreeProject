@@ -1,0 +1,60 @@
+﻿using DegreeProject.BL.Interfaces;
+using DegreeProject.BL.NInject;
+using DegreeProject.DB.DataContexts;
+using DegreeProject.DB.Interfaces;
+using DegreeProject.DB.Models;
+using DegreeProject.DB.Repositories;
+using DegreeProject.DB.UnitOfWork;
+using Ninject;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DegreeProject.BL.Models
+{
+    public class CustomerService : ICustomerService
+    {
+        private readonly IUnitofWork _unitOfWork;
+
+        public CustomerService()
+        {
+            var module = new Module();
+            var kernel = new StandardKernel(module);
+
+            _unitOfWork = kernel.Get<UnitOfWork>();
+
+        }
+        public CustomerService(IUnitofWork unitofWork)
+        {
+            _unitOfWork = unitofWork;
+        }
+
+        public async Task Create(Customer entity)
+        {
+            await _unitOfWork.CustomerRepository.Add(entity);
+            await _unitOfWork.Commit();
+        }
+
+        public async Task Delete(Customer entity)
+        {
+            await _unitOfWork.CustomerRepository.Delete(entity);
+        }
+
+        public async Task<Customer> Get(int id)
+        {
+            return await _unitOfWork.CustomerRepository.GetById(id);
+        }
+
+        public async Task<IEnumerable<Customer>> GetAll()
+        {
+            return await _unitOfWork.CustomerRepository.GetAll();
+        }
+
+        public async Task Update(Customer entity)
+        {
+            await _unitOfWork.CustomerRepository.Update(entity);
+        }
+    }
+}

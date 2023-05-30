@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DegreeProject.DB.DataContexts;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace DegreeProject.DB.Interfaces
 {
     public interface IRepository <T> where T : class
     {
+        public DataContext DbContext { get; set; }
         Task<T> GetById(int Id);
         Task Add(T item);
         Task Update(T item);

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DegreeProject.DB.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,8 @@ namespace DegreeProject.DB.Interfaces
 {
     public interface IUnitofWork : IDisposable
     {
-        IRepository GetRepository<TEntity, IRepository>()
-            where TEntity : class
-            where IRepository : IRepository<IEntyty>, new();
+        IRepository<Customer> CustomerRepository { get; }
+        void BeginTransaction();
         Task Commit();
-        Task Rollback();
     }
 }

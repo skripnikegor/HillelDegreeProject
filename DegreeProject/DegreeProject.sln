@@ -5,7 +5,12 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DegreeProject.DB", "DegreeProject.DB\DegreeProject.DB.csproj", "{B846F05C-E0E4-435D-AFBC-CC8211540CDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DegreeProject.BL", "DegreeProject.BL\DegreeProject.BL.csproj", "{09660E95-9489-46C7-93D6-3746ACFA66F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DegreeProject.BL", "DegreeProject.BL\DegreeProject.BL.csproj", "{09660E95-9489-46C7-93D6-3746ACFA66F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DegreeProject.API", "DegreeProject.API\DegreeProject.API.csproj", "{6EF6F12A-2A30-4BFD-853A-C9A1370B3492}"
+	ProjectSection(ProjectDependencies) = postProject
+		{09660E95-9489-46C7-93D6-3746ACFA66F0} = {09660E95-9489-46C7-93D6-3746ACFA66F0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09660E95-9489-46C7-93D6-3746ACFA66F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EF6F12A-2A30-4BFD-853A-C9A1370B3492}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EF6F12A-2A30-4BFD-853A-C9A1370B3492}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EF6F12A-2A30-4BFD-853A-C9A1370B3492}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EF6F12A-2A30-4BFD-853A-C9A1370B3492}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
