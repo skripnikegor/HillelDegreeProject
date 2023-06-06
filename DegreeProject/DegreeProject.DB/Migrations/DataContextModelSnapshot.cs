@@ -87,7 +87,7 @@ namespace DegreeProject.DB.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("UserProfile");
+                    b.ToTable("UserProfiles");
                 });
 
             modelBuilder.Entity("DegreeProject.DB.Models.Customer", b =>

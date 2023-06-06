@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DegreeProject.DB\DegreeProject.DB.csproj" />
+    <ProjectReference Include="..\DegreeProject.DTO\DegreeProject.DTO.csproj" />
   </ItemGroup>
 
   <ItemGroup>

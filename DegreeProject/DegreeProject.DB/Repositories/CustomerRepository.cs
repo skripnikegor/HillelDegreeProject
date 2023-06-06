@@ -35,7 +35,6 @@ namespace DegreeProject.DB.Repositories
         public async Task Update(Customer item)
         {
             DbContext.Set<Customer>().Update(item);
-
         }
 
         public async Task<IEnumerable<Customer>> GetAll()

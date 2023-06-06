@@ -14,3 +14,4 @@ build/
 bld/
 bin/
 obj/
+Migrations/

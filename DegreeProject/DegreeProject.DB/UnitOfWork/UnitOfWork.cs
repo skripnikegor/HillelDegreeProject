@@ -3,6 +3,7 @@ using DegreeProject.DB.Interfaces;
 using DegreeProject.DB.Models;
 using DegreeProject.DB.NInject;
 using DegreeProject.DB.Repositories;
+using DegreeProject.DTO.Models;
 using Microsoft.EntityFrameworkCore;
 using Ninject;
 using System;
@@ -16,6 +17,7 @@ namespace DegreeProject.DB.UnitOfWork
     public class UnitOfWork : IUnitofWork
     {
         private readonly IRepository<Customer> _customerRepository;
+        private readonly IRepository<UserProfile> _userProfile;
         private readonly DataContext _dbContext;
 
         private bool _disposed;
@@ -26,7 +28,7 @@ namespace DegreeProject.DB.UnitOfWork
             var kernel = new StandardKernel(module);
 
             _dbContext = kernel.Get<DataContext>();
-            _customerRepository = kernel.Get<CustomerRepository>();
+            _customerRepository = kernel.Get<IRepository<Customer>>();
             _customerRepository.DbContext = _dbContext;
         }
 
@@ -39,6 +41,12 @@ namespace DegreeProject.DB.UnitOfWork
 
         public IRepository<Customer> CustomerRepository => _customerRepository;
 
+
+        public async Task<CustomerDTO> GetUser(int id)
+        {
+            var c = await CustomerRepository.GetById(id);
+            return new CustomerDTO() { Name = c.Name };
+        }
 
         public void BeginTransaction()
         {

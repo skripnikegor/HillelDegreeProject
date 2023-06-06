@@ -1,5 +1,6 @@
 ﻿using DegreeProject.BL.Interfaces;
 using DegreeProject.BL.Models;
+using DegreeProject.DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DegreeProject.API.Controllers
@@ -30,8 +31,9 @@ namespace DegreeProject.API.Controllers
         }
 
         //[HttpPost]
-        //public async Task<IActionResult> Post([FromBody] OwnerDto ownerCreate)
+        //public async Task<IActionResult> Post(CustomerDTO CustomerCreate)
 
-        
+
+
     }
 }

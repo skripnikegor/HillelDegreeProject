@@ -1,16 +1,10 @@
 ﻿using DegreeProject.BL.Interfaces;
 using DegreeProject.BL.NInject;
-using DegreeProject.DB.DataContexts;
 using DegreeProject.DB.Interfaces;
 using DegreeProject.DB.Models;
-using DegreeProject.DB.Repositories;
 using DegreeProject.DB.UnitOfWork;
 using Ninject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DegreeProject.BL.Models
 {
@@ -24,8 +18,8 @@ namespace DegreeProject.BL.Models
             var kernel = new StandardKernel(module);
 
             _unitOfWork = kernel.Get<UnitOfWork>();
-
         }
+
         public CustomerService(IUnitofWork unitofWork)
         {
             _unitOfWork = unitofWork;
@@ -33,6 +27,7 @@ namespace DegreeProject.BL.Models
 
         public async Task Create(Customer entity)
         {
+            
             await _unitOfWork.CustomerRepository.Add(entity);
             await _unitOfWork.Commit();
         }
@@ -55,6 +50,7 @@ namespace DegreeProject.BL.Models
         public async Task Update(Customer entity)
         {
             await _unitOfWork.CustomerRepository.Update(entity);
+            await _unitOfWork.Commit();
         }
     }
 }

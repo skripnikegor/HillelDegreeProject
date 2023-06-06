@@ -18,6 +18,7 @@ namespace DegreeProject.DB.DataContexts
         }
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
