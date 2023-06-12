@@ -1,6 +1,6 @@
 ﻿using DegreeProject.BL.Interfaces;
 using DegreeProject.BL.Models;
-using DegreeProject.DTO.Models;
+using DegreeProject.DTO.Users;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DegreeProject.API.Controllers

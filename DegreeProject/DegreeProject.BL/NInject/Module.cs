@@ -13,7 +13,7 @@ namespace DegreeProject.BL.NInject
     {
         public override void Load()
         {
-            this.Bind<IUnitofWork>().To<UnitOfWork>();
+            this.Bind<IUserUnitofWork>().To<UserUnitOfWork>();
         }
     }
 }

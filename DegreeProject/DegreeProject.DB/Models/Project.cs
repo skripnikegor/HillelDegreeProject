@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Models
 {
-    public class Project
+    internal class Project
     {
         public int Id { get; set; }
         public int MyProperty { get; set; }

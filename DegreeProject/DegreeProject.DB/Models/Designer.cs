@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Models
 {
-    public class Designer : UserBase
+    internal class Designer : UserBase
     {
     }
 }

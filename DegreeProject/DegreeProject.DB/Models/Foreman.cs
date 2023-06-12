@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Models
 {
-    public class Foreman
+    internal class Foreman : UserBase
     {
     }
 }

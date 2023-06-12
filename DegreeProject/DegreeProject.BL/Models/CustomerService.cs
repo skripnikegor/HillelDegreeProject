@@ -3,6 +3,7 @@ using DegreeProject.BL.NInject;
 using DegreeProject.DB.Interfaces;
 using DegreeProject.DB.Models;
 using DegreeProject.DB.UnitOfWork;
+using DegreeProject.DTO.Users;
 using Ninject;
 
 
@@ -10,47 +11,45 @@ namespace DegreeProject.BL.Models
 {
     public class CustomerService : ICustomerService
     {
-        private readonly IUnitofWork _unitOfWork;
+        private readonly IUserUnitofWork _unitOfWork;
 
         public CustomerService()
         {
             var module = new Module();
             var kernel = new StandardKernel(module);
 
-            _unitOfWork = kernel.Get<UnitOfWork>();
+            _unitOfWork = kernel.Get<IUserUnitofWork>();
         }
 
-        public CustomerService(IUnitofWork unitofWork)
+        public CustomerService(IUserUnitofWork unitofWork)
         {
             _unitOfWork = unitofWork;
         }
 
-        public async Task Create(Customer entity)
+        public async Task Create(CustomerDTO entity)
         {
             
-            await _unitOfWork.CustomerRepository.Add(entity);
-            await _unitOfWork.Commit();
+             
         }
 
-        public async Task Delete(Customer entity)
+        public async Task Delete(CustomerDTO entity)
         {
-            await _unitOfWork.CustomerRepository.Delete(entity);
+            
         }
 
-        public async Task<Customer> Get(int id)
+        public async Task<CustomerDTO> Get(int id)
         {
-            return await _unitOfWork.CustomerRepository.GetById(id);
+            return await _unitOfWork.GetCustomer(id);
         }
 
-        public async Task<IEnumerable<Customer>> GetAll()
+        public async Task<IEnumerable<CustomerDTO>> GetAll()
         {
-            return await _unitOfWork.CustomerRepository.GetAll();
+            return await _unitOfWork.GetAllCustomers();
         }
 
-        public async Task Update(Customer entity)
+        public async Task Update(CustomerDTO entity)
         {
-            await _unitOfWork.CustomerRepository.Update(entity);
-            await _unitOfWork.Commit();
+            
         }
     }
 }

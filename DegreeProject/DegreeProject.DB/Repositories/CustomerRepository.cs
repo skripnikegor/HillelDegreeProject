@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Repositories
 {
-    public class CustomerRepository : IRepository<Customer>
+    internal class CustomerRepository : IRepository<Customer>
     {
         #region fields
         public DataContext DbContext { get; set; }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Models
 {
-    public class UserBase
+    internal class UserBase
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public List<Project> Projects { get; set; }
+        public int UserProfileId { get; set; }
         public virtual UserProfile UserProfile { get; set; }
     }
 }

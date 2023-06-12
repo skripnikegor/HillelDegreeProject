@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Models
 {
-    public class BIMSpecialist : UserBase
+    internal class BIMSpecialist : UserBase
     {
     }
 }
