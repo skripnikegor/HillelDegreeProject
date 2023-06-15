@@ -1,4 +1,5 @@
 ﻿using DegreeProject.DB.DataContexts;
+using DegreeProject.DTO.Projects;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,8 @@ namespace DegreeProject.DB.Interfaces
         Task<T> GetById(int Id);
         Task Add(T item);
         Task Update(T item);
-        Task Delete(T item);
+        Task Delete(int id);
         Task<IEnumerable<T>> GetAll();
+        Task<bool> Exist(int id);
     }
 }

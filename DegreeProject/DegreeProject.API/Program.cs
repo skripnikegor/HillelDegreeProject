@@ -12,7 +12,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+
+builder.Services.AddScoped<IStandartService, StandartService>();
 
 
 

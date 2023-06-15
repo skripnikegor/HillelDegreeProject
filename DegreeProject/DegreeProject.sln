@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DegreeProject.API", "Degree
 		{09660E95-9489-46C7-93D6-3746ACFA66F0} = {09660E95-9489-46C7-93D6-3746ACFA66F0}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DegreeProject.DTO", "DegreeProject.DTO\DegreeProject.DTO.csproj", "{6EC92EC2-7F73-435B-8E02-605553C063D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DegreeProject.DTO", "DegreeProject.DTO\DegreeProject.DTO.csproj", "{6EC92EC2-7F73-435B-8E02-605553C063D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

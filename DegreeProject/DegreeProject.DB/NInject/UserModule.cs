@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.NInject
 {
-    internal class UserModule : NinjectModule
-    {
-        public override void Load()
-        {
-            this.Bind<DbContext>().To<DataContext>();
-            this.Bind<IRepository<Customer>>().To<CustomerRepository>();
-            this.Bind<IRepository<UserProfile>>().To<UserProfileRepository>();
-        }
-    }
+    //internal class UserModule : NinjectModule
+    //{
+    //    public override void Load()
+    //    {
+    //        this.Bind<DbContext>().To<DataContext>();
+    //        this.Bind<IRepository<Customer>>().To<CustomerRepository>();
+    //        this.Bind<IRepository<UserProfile>>().To<UserProfileRepository>();
+    //    }
+    //}
 }
