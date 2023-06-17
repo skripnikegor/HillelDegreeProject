@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.BL.NInject
 {
-    //public class Module : NinjectModule
-    //{
-    //    public override void Load()
-    //    {
-    //        this.Bind<IUserUnitofWork>().To<UserUnitOfWork>();
-    //    }
-    //}
+    public class Module : NinjectModule
+    {
+        public override void Load()
+        {
+            this.Bind<IUserUnitofWork>().To<UserUnitOfWork>();
+        }
+    }
 }

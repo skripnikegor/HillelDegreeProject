@@ -10,37 +10,47 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Repositories
 {
-    //internal class CustomerRepository : IRepository<Customer>
-    //{
-    //    #region fields
-    //    public DataContext DbContext { get; set; }
-    //    #endregion
+    internal class CustomerRepository : IRepository<Customer>
+    {
+        #region fields
+        public DataContext DbContext { get; set; }
+        #endregion
 
-    //    #region methods
-    //    public async Task Add(Customer item)
-    //    {
-    //        await DbContext.Set<Customer>().AddAsync(item);
-    //    }
+        #region methods
+        public async Task Add(Customer item)
+        {
+            await DbContext.Set<Customer>().AddAsync(item);
+        }
 
-    //    public async Task Delete(Customer item)
-    //    {
-    //        DbContext.Set<Customer>().Remove(item);
-    //    }
+        public async Task Delete(Customer item)
+        {
+            DbContext.Set<Customer>().Remove(item);
+        }
 
-    //    public async Task<Customer> GetById(int Id)
-    //    {
-    //        return await DbContext.Set<Customer>().FindAsync(Id);
-    //    }
+        public async Task<Customer> GetById(int Id)
+        {
+            return await DbContext.Set<Customer>().FindAsync(Id);
+        }
 
-    //    public async Task Update(Customer item)
-    //    {
-    //        DbContext.Set<Customer>().Update(item);
-    //    }
+        public async Task Update(Customer item)
+        {
+            DbContext.Set<Customer>().Update(item);
+        }
 
-    //    public async Task<IEnumerable<Customer>> GetAll()
-    //    {
-    //        return await DbContext.Set<Customer>().ToListAsync();
-    //    }
-    //    #endregion
-    //}
+        public async Task<IEnumerable<Customer>> GetAll()
+        {
+            return await DbContext.Set<Customer>().ToListAsync();
+        }
+
+        public Task Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> Exist(int id)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+    }
 }

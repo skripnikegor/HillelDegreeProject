@@ -52,9 +52,9 @@ namespace DegreeProject.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id,  StandartDTO standart)
         {
-            await _standartService.Delete(id);
+            await _standartService.Delete(id, standart);
             return Ok();
         }
     }

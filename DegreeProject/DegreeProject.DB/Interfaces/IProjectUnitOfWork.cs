@@ -17,7 +17,7 @@ namespace DegreeProject.DB.Interfaces
         Task<StandartDTO> GetStandart(int id);
         Task<IEnumerable<StandartDTO>> GetStandarts();
         Task UpdateStandart(int id, StandartDTO item);
-        Task DeleteStandart(int Id);
+        Task DeleteStandart(int Id, StandartDTO item);
         Task AddStandart(StandartDTO item);
 
     }

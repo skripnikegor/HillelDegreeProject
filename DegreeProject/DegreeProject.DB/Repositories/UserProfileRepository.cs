@@ -10,36 +10,46 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Repositories
 {
-    //internal class UserProfileRepository : IRepository<UserProfile>
-    //{
-    //    #region fields
-    //    public DataContext DbContext { get; set; }
-    //    #endregion
-    //    #region methods
-    //    public async Task Add(UserProfile item)
-    //    {
-    //        await DbContext.Set<UserProfile>().AddAsync(item);
-    //    }
+    internal class UserProfileRepository : IRepository<UserProfile>
+    {
+        #region fields
+        public DataContext DbContext { get; set; }
+        #endregion
+        #region methods
+        public async Task Add(UserProfile item)
+        {
+            await DbContext.Set<UserProfile>().AddAsync(item);
+        }
 
-    //    public async Task Delete(UserProfile item)
-    //    {
-    //        DbContext.Set<UserProfile>().Remove(item);
-    //    }
+        public async Task Delete(UserProfile item)
+        {
+            DbContext.Set<UserProfile>().Remove(item);
+        }
 
-    //    public async Task<IEnumerable<UserProfile>> GetAll()
-    //    {
-    //        return await DbContext.Set<UserProfile>().ToListAsync();
-    //    }
+        public Task Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public async Task<UserProfile> GetById(int Id)
-    //    {
-    //        return await DbContext.Set<UserProfile>().FindAsync(Id);
-    //    }
+        public Task<bool> Exist(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-    //    public async Task Update(UserProfile item)
-    //    {
-    //        DbContext.Set<UserProfile>().Update(item);
-    //    }
-    //    #endregion
-    //}
+        public async Task<IEnumerable<UserProfile>> GetAll()
+        {
+            return await DbContext.Set<UserProfile>().ToListAsync();
+        }
+
+        public async Task<UserProfile> GetById(int Id)
+        {
+            return await DbContext.Set<UserProfile>().FindAsync(Id);
+        }
+
+        public async Task Update(UserProfile item)
+        {
+            DbContext.Set<UserProfile>().Update(item);
+        }
+        #endregion
+    }
 }

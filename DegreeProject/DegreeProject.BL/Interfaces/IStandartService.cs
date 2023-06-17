@@ -14,6 +14,6 @@ namespace DegreeProject.BL.Interfaces
         Task<StandartDTO> Get(int id);
         Task Create(StandartDTO entity);
         Task Update(int id, StandartDTO entity);
-        Task Delete(int Id);
+        Task Delete(int id, StandartDTO entity);
     }
 }

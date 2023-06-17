@@ -15,10 +15,11 @@ namespace DegreeProject.DB.Repositories.Projects
             await DbContext.Set<Standart>().AddAsync(item);
         }
 
-        public async Task Delete(int Id)
+        public async Task Delete(Standart item)
         {
-            var standart = await GetById(Id);
-            DbContext.Set<Standart>().Remove(standart);
+            
+            DbContext.Set<Standart>().Remove(item);
+            
         }
 
         public async Task<bool> Exist(int id)

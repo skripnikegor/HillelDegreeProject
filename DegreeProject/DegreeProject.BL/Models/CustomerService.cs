@@ -9,47 +9,47 @@ using Ninject;
 
 namespace DegreeProject.BL.Models
 {
-    //public class CustomerService : ICustomerService
-    //{
-    //    private readonly IUserUnitofWork _unitOfWork;
+    public class CustomerService : ICustomerService
+    {
+        private readonly IUserUnitofWork _unitOfWork;
 
-    //    public CustomerService()
-    //    {
-    //        var module = new Module();
-    //        var kernel = new StandardKernel(module);
+        public CustomerService()
+        {
+            var module = new Module();
+            var kernel = new StandardKernel(module);
 
-    //        _unitOfWork = kernel.Get<IUserUnitofWork>();
-    //    }
+            _unitOfWork = kernel.Get<IUserUnitofWork>();
+        }
 
-    //    public CustomerService(IUserUnitofWork unitofWork)
-    //    {
-    //        _unitOfWork = unitofWork;
-    //    }
+        public CustomerService(IUserUnitofWork unitofWork)
+        {
+            _unitOfWork = unitofWork;
+        }
 
-    //    public async Task Create(CustomerDTO entity)
-    //    {
-            
-             
-    //    }
+        public async Task Create(CustomerDTO entity)
+        {
 
-    //    public async Task Delete(CustomerDTO entity)
-    //    {
-            
-    //    }
 
-    //    public async Task<CustomerDTO> Get(int id)
-    //    {
-    //        return await _unitOfWork.GetCustomer(id);
-    //    }
+        }
 
-    //    public async Task<IEnumerable<CustomerDTO>> GetAll()
-    //    {
-    //        return await _unitOfWork.GetAllCustomers();
-    //    }
+        public async Task Delete(CustomerDTO entity)
+        {
 
-    //    public async Task Update(CustomerDTO entity)
-    //    {
-            
-    //    }
-    //}
+        }
+
+        public async Task<CustomerDTO> Get(int id)
+        {
+            return await _unitOfWork.GetCustomer(id);
+        }
+
+        public async Task<IEnumerable<CustomerDTO>> GetAll()
+        {
+            return await _unitOfWork.GetAllCustomers();
+        }
+
+        public async Task Update(CustomerDTO entity)
+        {
+
+        }
+    }
 }

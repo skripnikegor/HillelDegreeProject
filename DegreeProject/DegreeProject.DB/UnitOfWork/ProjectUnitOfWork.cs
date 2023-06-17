@@ -113,10 +113,21 @@ namespace DegreeProject.DB.UnitOfWork
             
         }
 
-        public async Task DeleteStandart(int Id)
+        public async Task DeleteStandart(int id, StandartDTO item)
         {
+            var standart = new Standart()
+            {
+                Id = id,
+                Name = $"{item.Name}",
+                CodeResourse = $"{item.CodeResourse}",
+                NameResourse = $"{item.NameResourse}",
+                Unit = $"{item.Unit}",
+                UnitAmount = item.UnitAmount,
+                LaborCostHour = item.LaborCostHour,
+                LaborCostMachine = item.LaborCostMachine
+            };
             await BeginTransaction();
-            _standartRepository.Delete(Id);
+            _standartRepository.Delete(standart);
             await Commit();
             await Save();
             

@@ -23,9 +23,9 @@ namespace DegreeProject.BL.Models
             await _unitOfWork.AddStandart(entity);
         }
 
-        public async Task Delete(int Id)
+        public async Task Delete(int id, StandartDTO entity)
         {
-            await _unitOfWork.DeleteStandart(Id);
+            await _unitOfWork.DeleteStandart(id, entity);
         }
 
         public async Task<StandartDTO> Get(int id)
