@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DegreeProject.DB.Models.Users;
 
 namespace DegreeProject.DB.Models.Projects
 {
     internal class ProjectOwner
     {
+        public int Id { get; set; }
+        public IEnumerable<UserBase> Participants { get; set; }
+        public Project Project { get; set; }
+        public int ProjectId { get; set; }
     }
 }

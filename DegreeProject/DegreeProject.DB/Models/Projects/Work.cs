@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Models.Projects
 {
-    internal class Works
+    internal class Work
     {
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
     }
 }

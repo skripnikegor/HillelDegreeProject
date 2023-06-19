@@ -1,6 +1,4 @@
-﻿using DegreeProject.BL.Interfaces;
-using DegreeProject.BL.Interfaces.Generic;
-using DegreeProject.BL.Models;
+﻿using DegreeProject.BL.Interfaces.Generic;
 using DegreeProject.DTO.Projects;
 using Microsoft.AspNetCore.Mvc;
 
