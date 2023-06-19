@@ -1,6 +1,6 @@
 ﻿using DegreeProject.DB.DataContexts;
-using DegreeProject.DB.Interfaces;
-using DegreeProject.DB.Models;
+using DegreeProject.DB.Interfaces.Repository;
+using DegreeProject.DB.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

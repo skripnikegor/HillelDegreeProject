@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DegreeProject.DB.Interfaces
+namespace DegreeProject.DB.Interfaces.Repository
 {
     internal interface IRepository <T> where T : class
     {

@@ -1,5 +1,5 @@
 ﻿using DegreeProject.DB.DataContexts;
-using DegreeProject.DB.Interfaces;
+using DegreeProject.DB.Interfaces.Repository;
 using DegreeProject.DB.Models.Projects;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;

@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DegreeProject.DB.Models
+namespace DegreeProject.DTO.Users
 {
-    internal class UserBase
+    public class UserDTO
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int UserProfileId { get; set; }
-        public virtual UserProfile UserProfile { get; set; }
+        public UserProfileDTO UserProfile { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 using DegreeProject.BL.Interfaces;
+using DegreeProject.BL.Interfaces.Generic;
 using DegreeProject.BL.Models;
-
+using DegreeProject.DTO.Projects;
+using DegreeProject.DTO.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +15,10 @@ builder.Services.AddSwaggerGen();
 
 
 
-builder.Services.AddScoped<IStandartService, StandartService>();
+builder.Services.AddScoped<IService<StandartDTO>, StandartService>();
+builder.Services.AddScoped<IService<MaterialDTO>, MaterialService>();
+builder.Services.AddScoped<IService<UserDTO>,UserService>();
+
 
 
 
@@ -22,14 +27,20 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()); app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
-app.MapControllers();
+app.UseAuthorization();
+app.UseRouting();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapDefaultControllerRoute();
+});
 
 app.Run();

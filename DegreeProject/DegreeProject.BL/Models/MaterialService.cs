@@ -8,18 +8,18 @@ using Ninject;
 
 namespace DegreeProject.BL.Models
 {
-    public class StandartService : IService<StandartDTO>
+    public class MaterialService : IService<MaterialDTO>
     {
-        private readonly IUnitOfWork<StandartDTO> _unitOfWork;
+        private readonly IUnitOfWork<MaterialDTO> _unitOfWork;
 
-        public StandartService()
+        public MaterialService()
         {
-            var module = new StandartModule();
+            var module = new MaterialModule();
             var kernel = new StandardKernel(module);
 
-            _unitOfWork = kernel.Get<IUnitOfWork<StandartDTO>>();
+            _unitOfWork = kernel.Get<IUnitOfWork<MaterialDTO>>();
         }
-        public async Task Create(StandartDTO entity)
+        public async Task Create(MaterialDTO entity)
         {
             await _unitOfWork.Add(entity);
         }
@@ -29,17 +29,17 @@ namespace DegreeProject.BL.Models
             await _unitOfWork.Delete(id);
         }
 
-        public async Task<StandartDTO> Get(int id)
+        public async Task<MaterialDTO> Get(int id)
         {
             return await _unitOfWork.Get(id);
         }
 
-        public async Task<IEnumerable<StandartDTO>> GetAll()
+        public async Task<IEnumerable<MaterialDTO>> GetAll()
         {
             return await _unitOfWork.Get();
         }
 
-        public async Task Update(int id, StandartDTO entity)
+        public async Task Update(int id, MaterialDTO entity)
         {
             await _unitOfWork.Update(id, entity);
         }

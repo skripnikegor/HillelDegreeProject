@@ -3,7 +3,7 @@
 
 namespace DegreeProject.DTO.Users
 {
-    public class RegisterCustomerDTO
+    public class RegisterUserDTO
     {
         public string Name { get; set; }
         public string Email { get; set; }

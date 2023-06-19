@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DegreeProject.DB.Models
+namespace DegreeProject.DB.Models.Projects
 {
-    internal class Designer : UserBase
+    internal class ProjectOwner
     {
     }
 }

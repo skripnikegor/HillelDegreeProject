@@ -1,5 +1,5 @@
-﻿using DegreeProject.DB.Models;
-using DegreeProject.DB.Models.Projects;
+﻿using DegreeProject.DB.Models.Projects;
+using DegreeProject.DB.Models.Users;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -18,9 +18,11 @@ namespace DegreeProject.DB.DataContexts
 
         }
 
-        internal DbSet<Customer> Customers { get; set; }
+        internal DbSet<UserBase> Users { get; set; }
         internal DbSet<UserProfile> UserProfiles { get; set; }
         internal DbSet<Standart> Standarts { get; set; }
+        internal DbSet<Material> Materials { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

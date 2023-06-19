@@ -14,7 +14,7 @@ namespace DegreeProject.DB.Models.Projects
         public string NameResourse { get; set; }
         public string Unit { get; set; }
         public int UnitAmount { get; set; }
-        public double LaborCostHour { get; set; }
-        public double LaborCostMachine { get; set; }
+        public decimal LaborCostHour { get; set; }
+        public decimal LaborCostMachine { get; set; }
     }
 }

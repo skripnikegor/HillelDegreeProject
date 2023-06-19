@@ -2,7 +2,6 @@
 using DegreeProject.DB.Interfaces.Repository;
 using DegreeProject.DB.Models.Projects;
 using DegreeProject.DB.Repositories.Projects;
-using DegreeProject.DTO.Projects;
 using Microsoft.EntityFrameworkCore;
 using Ninject.Modules;
 using System;
@@ -13,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.NInject
 {
-    internal class ProjectModule : NinjectModule
+    internal class MaterialModule : NinjectModule
     {
         public override void Load()
         {
             this.Bind<DbContext>().To<DataContext>();
-            this.Bind<IRepository<Standart>>().To<StandartRepository>();
+            this.Bind<IRepository<Material>>().To<MaterialRepository>();
         }
     }
 }
