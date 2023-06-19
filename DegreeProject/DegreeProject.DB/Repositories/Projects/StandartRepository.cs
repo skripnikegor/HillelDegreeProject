@@ -10,16 +10,16 @@ namespace DegreeProject.DB.Repositories.Projects
     internal class StandartRepository : IRepository<Standart>
     {
         public DataContext DbContext { get; set; }
-        public async Task Add(Standart item)
+        public async Task<Standart> Add(Standart item)
         {
             await DbContext.Set<Standart>().AddAsync(item);
+            return item;
         }
 
-        public async Task Delete(Standart item)
-        {
-            
+        public async Task<Standart> Delete(Standart item)
+        { 
             DbContext.Set<Standart>().Remove(item);
-            
+            return item; 
         }
 
         public async Task<bool> Exist(int id)
@@ -37,9 +37,10 @@ namespace DegreeProject.DB.Repositories.Projects
             return await DbContext.Set<Standart>().FindAsync(Id);
         }
 
-        public async Task Update(Standart item)
+        public async Task<Standart> Update(Standart item)
         {
             DbContext.Set<Standart>().Update(item);
+            return item;
         }
     }
 }

@@ -9,14 +9,16 @@ namespace DegreeProject.DB.Repositories.Projects
     {
         public DataContext DbContext { get; set; }
 
-        public async Task Add(Material item)
+        public async Task<Material> Add(Material item)
         {
             await DbContext.Set<Material>().AddAsync(item);
+            return item;
         }
 
-        public async Task Delete(Material item)
+        public async Task<Material> Delete(Material item)
         {
             DbContext.Set<Material>().Remove(item);
+            return item;
         }
 
         public async Task<bool> Exist(int id)
@@ -34,9 +36,10 @@ namespace DegreeProject.DB.Repositories.Projects
             return await DbContext.Set<Material>().FindAsync(Id);
         }
 
-        public async Task Update(Material item)
+        public async Task<Material> Update(Material item)
         {
              DbContext.Set<Material>().Update(item);
+             return item;
         }
     }
 }

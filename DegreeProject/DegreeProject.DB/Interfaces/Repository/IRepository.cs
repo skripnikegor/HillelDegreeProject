@@ -13,9 +13,9 @@ namespace DegreeProject.DB.Interfaces.Repository
     {
         internal DataContext DbContext { get; set; }
         Task<T> GetById(int Id);
-        Task Add(T item);
-        Task Update(T item);
-        Task Delete(T item);
+        Task<T> Add(T item);
+        Task<T> Update(T item);
+        Task<bool> Delete(T item);
         Task<IEnumerable<T>> GetAll();
         Task<bool> Exist(int id);
     }
