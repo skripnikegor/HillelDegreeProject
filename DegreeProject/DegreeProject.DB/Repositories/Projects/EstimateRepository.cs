@@ -1,16 +1,11 @@
 ﻿using DegreeProject.DB.DataContexts;
-using DegreeProject.DB.Interfaces.Repository;
 using DegreeProject.DB.Models.Projects;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DegreeProject.DB.Repositories.Projects
 {
-    internal class EstimateRepository : IRepository<Estimate>
+    internal class EstimateRepository
     {
         public DataContext DbContext { get; set; }
         public async Task<Estimate> Add(Estimate item)

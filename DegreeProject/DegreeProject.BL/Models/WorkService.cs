@@ -1,28 +1,25 @@
-﻿using DegreeProject.BL.Interfaces;
-using DegreeProject.BL.Interfaces.Generic;
+﻿using DegreeProject.BL.Interfaces.Generic;
 using DegreeProject.BL.NInject;
 using DegreeProject.DB.Interfaces;
 using DegreeProject.DTO.Projects;
 using Ninject;
 
-
 namespace DegreeProject.BL.Models
 {
-    public class StandartService : IService<StandartDTO>
+    public class WorkService : IService<WorkDTO>
     {
-        private readonly IUnitOfWork<StandartDTO> _unitOfWork;
+        private readonly IUnitOfWork<WorkDTO> _unitOfWork;
 
-        public StandartService()
+        public WorkService()
         {
-            var module = new StandartModule();
+            var module = new WorkModule();
             var kernel = new StandardKernel(module);
 
-            _unitOfWork = kernel.Get<IUnitOfWork<StandartDTO>>();
+            _unitOfWork = kernel.Get<IUnitOfWork<WorkDTO>>();
         }
-        public async Task<StandartDTO> Create(StandartDTO entity)
+        public async Task<WorkDTO> Create(WorkDTO entity)
         {
             return await _unitOfWork.Add(entity);
-            
         }
 
         public async Task<bool> Delete(int id)
@@ -35,17 +32,17 @@ namespace DegreeProject.BL.Models
             return await _unitOfWork.Exist(id);
         }
 
-        public async Task<StandartDTO> Get(int id)
+        public async Task<WorkDTO> Get(int id)
         {
             return await _unitOfWork.Get(id);
         }
 
-        public async Task<IEnumerable<StandartDTO>> GetAll()
+        public async Task<IEnumerable<WorkDTO>> GetAll()
         {
             return await _unitOfWork.GetAll();
         }
 
-        public async Task<StandartDTO> Update(int id, StandartDTO entity)
+        public async Task<WorkDTO> Update(int id, WorkDTO entity)
         {
             return await _unitOfWork.Update(id, entity);
         }

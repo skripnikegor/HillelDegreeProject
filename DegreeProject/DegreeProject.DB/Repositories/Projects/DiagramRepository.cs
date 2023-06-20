@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DegreeProject.DB.Repositories.Projects
 {
-    internal class DiagramRepository : IRepository<Diagram>
+    internal class DiagramRepository
     {
         public DataContext DbContext { get; set; }
 

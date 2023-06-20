@@ -38,9 +38,10 @@ namespace DegreeProject.DB.UnitOfWork
         //    GC.SuppressFinalize(this);
         //}
 
-        public async Task Save(DataContext _dbContext)
+        public async Task<bool> Save(DataContext _dbContext)
         {
-            _dbContext.SaveChanges();
+            int res = await _dbContext.SaveChangesAsync();
+            return res > 0 ? true : false;
         }
         protected virtual void Dispose(DataContext _dbContext, bool disposing)
         {

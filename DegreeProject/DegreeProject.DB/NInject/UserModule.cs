@@ -8,13 +8,13 @@ using DegreeProject.DB.Models.Users;
 
 namespace DegreeProject.DB.NInject
 {
-    internal class UserModule : NinjectModule
+    internal class UserModule
     {
-        public override void Load()
-        {
-            this.Bind<DbContext>().To<DataContext>();
-            this.Bind<IRepository<UserBase>>().To<UserRepository>();
-            this.Bind<IRepository<UserProfile>>().To<UserProfileRepository>();
-        }
+        //public override void Load()
+        //{
+        //    this.Bind<DbContext>().To<DataContext>();
+        //    this.Bind<IRepository<UserBase>>().To<UserRepository>();
+        //    this.Bind<IRepository<UserProfile>>().To<UserProfileRepository>();
+        //}
     }
 }

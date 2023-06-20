@@ -18,7 +18,7 @@ namespace DegreeProject.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(200, Type = typeof(IEnumerable<StandartDTO>))]
-        public async Task<IActionResult> GetAsync()
+        public async Task<IActionResult> GetAllAsync()
         {
             var standarts = await _standartService.GetAll();
             if (!ModelState.IsValid)
@@ -28,35 +28,57 @@ namespace DegreeProject.API.Controllers
 
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(StandartDTO))]
-        [ProducesResponseType(400)]
         public async Task<IActionResult> Get(int id)
         {
+            if (!await _standartService.Exist(id))
+                return NotFound();
+
             var standart = await _standartService.Get(id);
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            //TODO: добавить проверку на null
+
             return Ok(standart);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] StandartDTO standartCreate)
         {
-            await _standartService.Create(standartCreate);
-            return Ok(standartCreate);
+            if (standartCreate == null)
+                return BadRequest(ModelState);
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var standart = await _standartService.Create(standartCreate);
+            return Ok(standart);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] StandartDTO standartPut)
         {
-            await _standartService.Update(id, standartPut);
-            return Ok();
+            if (standartPut == null)
+                return BadRequest(ModelState);
+
+            if (!await _standartService.Exist(id))
+                return NotFound();
+
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var standart = await _standartService.Update(id, standartPut);
+            return Ok(standart);
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            await _standartService.Delete(id);
-            return Ok();
+            if (!await _standartService.Exist(id))
+                return NotFound();
+
+            var result = await _standartService.Delete(id);
+
+            return Ok(result);
         }
     }
 }

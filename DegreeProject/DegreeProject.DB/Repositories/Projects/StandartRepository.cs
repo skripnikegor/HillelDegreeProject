@@ -2,7 +2,6 @@
 using DegreeProject.DB.Interfaces.Repository;
 using DegreeProject.DB.Models.Projects;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 
 
 namespace DegreeProject.DB.Repositories.Projects
@@ -16,10 +15,9 @@ namespace DegreeProject.DB.Repositories.Projects
             return item;
         }
 
-        public async Task<Standart> Delete(Standart item)
-        { 
+        public async Task Delete(Standart item)
+        {
             DbContext.Set<Standart>().Remove(item);
-            return item; 
         }
 
         public async Task<bool> Exist(int id)
@@ -34,7 +32,7 @@ namespace DegreeProject.DB.Repositories.Projects
 
         public async Task<Standart> GetById(int Id)
         {
-            return await DbContext.Set<Standart>().FindAsync(Id);
+            return await DbContext.Set<Standart>().FirstOrDefaultAsync(x => x.Id == Id);
         }
 
         public async Task<Standart> Update(Standart item)

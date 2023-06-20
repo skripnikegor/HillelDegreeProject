@@ -17,7 +17,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IService<StandartDTO>, StandartService>();
 builder.Services.AddScoped<IService<MaterialDTO>, MaterialService>();
-builder.Services.AddScoped<IService<UserDTO>,UserService>();
+builder.Services.AddScoped<IService<WorkDTO>, WorkService>();
 
 
 

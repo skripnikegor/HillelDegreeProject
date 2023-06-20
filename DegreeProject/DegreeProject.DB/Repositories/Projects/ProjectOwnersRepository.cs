@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Repositories.Projects
 {
-    internal class ProjectOwnersRepository : IRepository<ProjectOwner>
+    internal class ProjectOwnersRepository
     {
         public DataContext DbContext { get; set; }
         public async Task<ProjectOwner> Add(ProjectOwner item)

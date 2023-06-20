@@ -15,7 +15,7 @@ namespace DegreeProject.DB.Interfaces.Repository
         Task<T> GetById(int Id);
         Task<T> Add(T item);
         Task<T> Update(T item);
-        Task<bool> Delete(T item);
+        Task Delete(T item);
         Task<IEnumerable<T>> GetAll();
         Task<bool> Exist(int id);
     }

@@ -19,14 +19,19 @@ namespace DegreeProject.BL.Models
 
             _unitOfWork = kernel.Get<IUnitOfWork<MaterialDTO>>();
         }
-        public async Task Create(MaterialDTO entity)
+        public async Task<MaterialDTO> Create(MaterialDTO entity)
         {
-            await _unitOfWork.Add(entity);
+            return await _unitOfWork.Add(entity);
         }
 
-        public async Task Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            await _unitOfWork.Delete(id);
+            return await _unitOfWork.Delete(id);
+        }
+
+        public Task<bool> Exist(int id)
+        {
+            return _unitOfWork.Exist(id);
         }
 
         public async Task<MaterialDTO> Get(int id)
@@ -36,12 +41,12 @@ namespace DegreeProject.BL.Models
 
         public async Task<IEnumerable<MaterialDTO>> GetAll()
         {
-            return await _unitOfWork.Get();
+            return await _unitOfWork.GetAll();
         }
 
-        public async Task Update(int id, MaterialDTO entity)
+        public async Task<MaterialDTO> Update(int id, MaterialDTO entity)
         {
-            await _unitOfWork.Update(id, entity);
+            return await _unitOfWork.Update(id, entity);
         }
     }
 }
