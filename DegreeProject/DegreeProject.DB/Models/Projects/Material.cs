@@ -12,5 +12,7 @@ namespace DegreeProject.DB.Models.Projects
         public int WorkCode { get; set; }
         public string StandartCode { get; set; }
         public string Unit { get; set; }
+
+        public IEnumerable<Estimate> Estimates { get; set; }
     }
 }

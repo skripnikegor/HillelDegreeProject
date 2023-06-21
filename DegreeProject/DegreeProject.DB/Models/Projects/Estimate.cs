@@ -7,5 +7,6 @@ namespace DegreeProject.DB.Models.Projects
         public string Name { get; set; }
         public IEnumerable<Material> Material { get; set; }
         public IEnumerable<Work> Work { get; set; }
+        public Project Project { get; set; }
     }
 }

@@ -7,6 +7,5 @@ namespace DegreeProject.DB.Models.Projects
         public int Id { get; set; }
         public IEnumerable<UserBase> Participants { get; set; }
         public Project Project { get; set; }
-        public int ProjectId { get; set; }
     }
 }

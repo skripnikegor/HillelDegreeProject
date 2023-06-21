@@ -48,9 +48,9 @@ namespace DegreeProject.DB.UnitOfWork.ProjectUnitOfWork
             return result;
         }
 
-        public Task<bool> Exist(int id)
+        public async Task<bool> Exist(int id)
         {
-            return _workRepository.Exist(id);
+            return await _workRepository.Exist(id);
         }
 
         public async Task<WorkDTO> Get(int id)

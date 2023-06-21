@@ -1,5 +1,4 @@
 ﻿using DegreeProject.BL.Interfaces.Generic;
-using DegreeProject.BL.Models;
 using DegreeProject.DTO.Projects;
 using Microsoft.AspNetCore.Mvc;
 
@@ -66,8 +65,8 @@ namespace DegreeProject.API.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var standart = await _workService.Update(id, workPut);
-            return Ok(standart);
+            var work = await _workService.Update(id, workPut);
+            return Ok(work);
         }
 
         [HttpDelete("{id}")]
