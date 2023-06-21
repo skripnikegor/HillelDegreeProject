@@ -11,8 +11,8 @@ namespace DegreeProject.DB.Repositories.Projects
         public DataContext DbContext { get; set; }
         public async Task<Standart> Add(Standart item)
         {
-            await DbContext.Set<Standart>().AddAsync(item);
-            return item;
+            var result = await DbContext.Set<Standart>().AddAsync(item);
+            return result.Entity;
         }
 
         public async Task Delete(Standart item)
@@ -37,8 +37,8 @@ namespace DegreeProject.DB.Repositories.Projects
 
         public async Task<Standart> Update(Standart item)
         {
-            DbContext.Set<Standart>().Update(item);
-            return item;
+            var result = DbContext.Set<Standart>().Update(item);
+            return result.Entity;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace DegreeProject.DB.UnitOfWork.Project
         
         public StandartUnitOfWork()
         {
-            var module = new ProjectModule();
+            var module = new StandartModule();
             var kernel = new StandardKernel(module);
 
             _dbContext = kernel.Get<DataContext>();

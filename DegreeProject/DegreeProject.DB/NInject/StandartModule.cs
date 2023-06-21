@@ -1,4 +1,5 @@
-﻿using DegreeProject.DB.DataContexts;
+﻿using AutoMapper;
+using DegreeProject.DB.DataContexts;
 using DegreeProject.DB.Interfaces.Repository;
 using DegreeProject.DB.Models.Projects;
 using DegreeProject.DB.Repositories.Projects;
@@ -13,12 +14,21 @@ using System.Threading.Tasks;
 
 namespace DegreeProject.DB.NInject
 {
-    internal class ProjectModule : NinjectModule
+    internal class StandartModule : NinjectModule
     {
         public override void Load()
         {
             this.Bind<DbContext>().To<DataContext>();
             this.Bind<IRepository<Standart>>().To<StandartRepository>();
+            this.Bind<IMapper>().ToMethod(ctx =>
+            {
+                var configuration = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<StandartDTO, Standart>();
+                    cfg.CreateMap<Standart, StandartDTO>();
+                });
+                return configuration.CreateMapper();
+            }).InSingletonScope();
         }
     }
 }
