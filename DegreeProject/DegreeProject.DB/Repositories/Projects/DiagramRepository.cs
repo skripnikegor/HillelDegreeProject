@@ -2,23 +2,26 @@
 using DegreeProject.DB.Interfaces.Repository;
 using DegreeProject.DB.Models.Projects;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DegreeProject.DB.Repositories.Projects
 {
-    internal class DiagramRepository
+    internal class DiagramRepository : IRepository<Diagram>
     {
         public DataContext DbContext { get; set; }
-
         public async Task<Diagram> Add(Diagram item)
         {
             await DbContext.Set<Diagram>().AddAsync(item);
             return item;
         }
 
-        public async Task<Diagram> Delete(Diagram item)
+        public async Task Delete(Diagram item)
         {
             DbContext.Set<Diagram>().Remove(item);
-            return item;
         }
 
         public async Task<bool> Exist(int id)

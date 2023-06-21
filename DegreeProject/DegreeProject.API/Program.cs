@@ -18,6 +18,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IService<StandartDTO>, StandartService>();
 builder.Services.AddScoped<IService<MaterialDTO>, MaterialService>();
 builder.Services.AddScoped<IService<WorkDTO>, WorkService>();
+builder.Services.AddScoped<IService<DiagramDTO>, DiagramService>();
+builder.Services.AddScoped<IService<EstimateDTO>, EstimateService>();
 
 
 
