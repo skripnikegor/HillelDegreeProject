@@ -25,9 +25,6 @@ namespace DegreeProject.DB.DataContexts
         internal DbSet<Work> Works { get; set; }
         internal DbSet<Standart> Standarts { get; set; }
 <<<<<<< HEAD
-        internal DbSet<Material> Materials { get; set; }
-        internal DbSet<Diagram> Diagrams { get; set; }
-        internal DbSet<Estimate> Estimates { get; set; }
         internal DbSet<UserBase> Users { get; set; }
 
 
