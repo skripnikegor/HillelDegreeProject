@@ -9,7 +9,7 @@ namespace DegreeProject.DTO.Projects
     public class EstimateDTO
     {
         public string Name { get; set; }
-        public IEnumerable<MaterialDTO> Material { get; set; }
-        public IEnumerable<WorkDTO> Work { get; set; }
+        //public IEnumerable<MaterialDTO> Material { get; set; }
+        //public IEnumerable<WorkDTO> Work { get; set; }
     }
 }

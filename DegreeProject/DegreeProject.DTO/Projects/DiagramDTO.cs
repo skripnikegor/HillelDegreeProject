@@ -9,6 +9,7 @@ namespace DegreeProject.DTO.Projects
     public class DiagramDTO
     {
         public string Name { get; set; }
-        public IEnumerable<WorkDTO> Works { get; set; }
+        //public IEnumerable<WorkDTO> Works { get; set; }
+        //public int? ProjectId { get; set; }
     }
 }
