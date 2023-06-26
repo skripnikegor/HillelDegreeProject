@@ -32,7 +32,9 @@ namespace DegreeProject.DB.UnitOfWork.Project
 
         public async Task<StandartDTO> Get(int id)
         {
-            return _mapper.Map<StandartDTO>(await _standartRepository.GetById(Criptor.Encrypt(id)));
+            var standart = await _standartRepository.GetById(Criptor.Decrypt(id));
+            standart.Id = Criptor.Encrypt(standart.Id);
+            return _mapper.Map<StandartDTO>(standart);
         }
 
         public async Task<IEnumerable<StandartDTO>> GetAll()
@@ -55,7 +57,7 @@ namespace DegreeProject.DB.UnitOfWork.Project
             var result = await _standartRepository.Update(standart);
             await Commit();
             await Save(_dbContext);
-
+            result.Id = Criptor.Encrypt(result.Id);
             return _mapper.Map<StandartDTO>(result);
         }
 
