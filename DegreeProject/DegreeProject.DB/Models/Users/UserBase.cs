@@ -1,4 +1,5 @@
-﻿using DegreeProject.DB.Models.Roles;
+﻿using DegreeProject.DB.Models.Projects;
+using DegreeProject.DB.Models.Roles;
 
 namespace DegreeProject.DB.Models.Users
 {
@@ -8,6 +9,7 @@ namespace DegreeProject.DB.Models.Users
         public string Name { get; set; }
         public Role UserRole { get; set; } 
         public int UserProfileId { get; set; }
+        public IEnumerable<ProjectBase> Projects { get; set; }
         public virtual UserProfile UserProfile { get; set; }
     }
 }

@@ -1,23 +1,22 @@
 ﻿using DegreeProject.BL.Interfaces.Generic;
-using DegreeProject.BL.NInject;
 using DegreeProject.DB.Interfaces;
 using DegreeProject.DTO.Projects;
 using Ninject;
 
+
 namespace DegreeProject.BL.Models
 {
-    public class WorkService : IService<WorkDTO>
+    public class ProjectService : IService<ProjectDTO>
     {
-        private readonly IUnitOfWork<WorkDTO> _unitOfWork;
-
-        public WorkService()
+        private readonly IUnitOfWork<ProjectDTO> _unitOfWork;
+        public ProjectService()
         {
-            var module = new WorkModule();
+            var module = new NInject.ProjectModule();
             var kernel = new StandardKernel(module);
 
-            _unitOfWork = kernel.Get<IUnitOfWork<WorkDTO>>();
+            _unitOfWork = kernel.Get<IUnitOfWork<ProjectDTO>>();
         }
-        public async Task<WorkDTO> Create(WorkDTO entity)
+        public async Task<ProjectDTO> Create(ProjectDTO entity)
         {
             return await _unitOfWork.Add(entity);
         }
@@ -32,17 +31,17 @@ namespace DegreeProject.BL.Models
             return await _unitOfWork.Exist(id);
         }
 
-        public async Task<WorkDTO> Get(int id)
+        public async Task<ProjectDTO> Get(int id)
         {
             return await _unitOfWork.Get(id);
         }
 
-        public async Task<IEnumerable<WorkDTO>> GetAll()
+        public async Task<IEnumerable<ProjectDTO>> GetAll()
         {
             return await _unitOfWork.GetAll();
         }
 
-        public async Task<WorkDTO> Update(int id, WorkDTO entity)
+        public async Task<ProjectDTO> Update(int id, ProjectDTO entity)
         {
             return await _unitOfWork.Update(id, entity);
         }

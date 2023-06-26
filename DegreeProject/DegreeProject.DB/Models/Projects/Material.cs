@@ -1,5 +1,7 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DegreeProject.DB.Models.Projects
 {
     internal class Material
@@ -12,7 +14,12 @@ namespace DegreeProject.DB.Models.Projects
         public int WorkCode { get; set; }
         public string StandartCode { get; set; }
         public string Unit { get; set; }
+        [ForeignKey("Project")]
+        public int? ProjectId { get; set; }
+        [ForeignKey("Estimate")]
+        public int? EstimateId { get; set; }
+       
 
-        public IEnumerable<Estimate> Estimates { get; set; }
+
     }
 }

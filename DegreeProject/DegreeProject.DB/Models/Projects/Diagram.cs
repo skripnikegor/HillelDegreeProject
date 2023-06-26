@@ -1,5 +1,7 @@
 ﻿
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DegreeProject.DB.Models.Projects
 {
     internal class Diagram
@@ -7,6 +9,7 @@ namespace DegreeProject.DB.Models.Projects
         public int Id { get; set; }
         public string Name { get; set; }
         public IEnumerable<Work> Works { get; set; }
-        public Project Project { get; set; }
+        [ForeignKey("ProjectBase")]
+        public int? ProjectBaseId { get; set; }
     }
 }

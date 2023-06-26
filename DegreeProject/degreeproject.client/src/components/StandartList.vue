@@ -45,6 +45,8 @@
               .catch((error) => {
                 console.error(error)
               });
+              
+              this.getStandarts();
       }
     },
     

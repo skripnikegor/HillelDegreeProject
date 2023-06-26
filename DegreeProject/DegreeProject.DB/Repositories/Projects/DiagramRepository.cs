@@ -26,7 +26,9 @@ namespace DegreeProject.DB.Repositories.Projects
 
         public async Task<bool> Exist(int id)
         {
-            return DbContext.Set<Diagram>().Any(c => c.Id == id);
+            if (await DbContext.Set<Diagram>().FirstAsync(c => c.Id == id) != null)
+                return true;
+            else return false;
         }
 
         public async Task<IEnumerable<Diagram>> GetAll()

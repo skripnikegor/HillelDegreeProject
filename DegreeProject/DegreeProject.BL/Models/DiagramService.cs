@@ -6,18 +6,18 @@ using Ninject;
 
 namespace DegreeProject.BL.Models
 {
-    public class WorkService : IService<WorkDTO>
+    public class DiagramService : IService<DiagramDTO>
     {
-        private readonly IUnitOfWork<WorkDTO> _unitOfWork;
+        private readonly IUnitOfWork<DiagramDTO> _unitOfWork;
 
-        public WorkService()
+        public DiagramService()
         {
-            var module = new WorkModule();
+            var module = new DiagramModule();
             var kernel = new StandardKernel(module);
 
-            _unitOfWork = kernel.Get<IUnitOfWork<WorkDTO>>();
+            _unitOfWork = kernel.Get<IUnitOfWork<DiagramDTO>>();
         }
-        public async Task<WorkDTO> Create(WorkDTO entity)
+        public async Task<DiagramDTO> Create(DiagramDTO entity)
         {
             return await _unitOfWork.Add(entity);
         }
@@ -32,17 +32,17 @@ namespace DegreeProject.BL.Models
             return await _unitOfWork.Exist(id);
         }
 
-        public async Task<WorkDTO> Get(int id)
+        public async Task<DiagramDTO> Get(int id)
         {
             return await _unitOfWork.Get(id);
         }
 
-        public async Task<IEnumerable<WorkDTO>> GetAll()
+        public async Task<IEnumerable<DiagramDTO>> GetAll()
         {
             return await _unitOfWork.GetAll();
         }
 
-        public async Task<WorkDTO> Update(int id, WorkDTO entity)
+        public async Task<DiagramDTO> Update(int id, DiagramDTO entity)
         {
             return await _unitOfWork.Update(id, entity);
         }

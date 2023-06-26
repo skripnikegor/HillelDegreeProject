@@ -11,6 +11,6 @@ namespace DegreeProject.DB.Models.Projects
         public byte ShiftAmount { get; set; }
         public byte MachineAmount { get; set; }
         public string MachineKind { get; set; }
-        public Work Work { get; set; }
+      
     }
 }

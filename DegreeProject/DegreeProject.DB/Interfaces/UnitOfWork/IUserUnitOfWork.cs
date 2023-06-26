@@ -14,5 +14,6 @@ namespace DegreeProject.DB.Interfaces.UnitOfWork
         Task Update(int id, T item);
         Task Delete(int id);
         Task Add(RegisterUserDTO item);
+        Task Exist(int id);
     }
 }
