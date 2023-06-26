@@ -5,6 +5,7 @@ namespace DegreeProject.DTO.Projects
 {
     public class StandartDTO
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(20, MinimumLength = 3)]
         public string Name { get; set; }

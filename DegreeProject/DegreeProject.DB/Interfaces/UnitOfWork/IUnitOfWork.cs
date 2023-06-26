@@ -10,11 +10,11 @@ namespace DegreeProject.DB.Interfaces
 {
     public interface IUnitOfWork<T>
     {
-        Task<T> Get(string id);
+        Task<T> Get(int id);
         Task<IEnumerable<T>> GetAll();
-        Task<T> Update(string id, T item);
-        Task<bool> Delete(string id);
+        Task<T> Update(int id, T item);
+        Task<bool> Delete(int id);
         Task<T> Add(T item);
-        Task<bool> Exist(string id);
+        Task<bool> Exist(int id);
     }
 }

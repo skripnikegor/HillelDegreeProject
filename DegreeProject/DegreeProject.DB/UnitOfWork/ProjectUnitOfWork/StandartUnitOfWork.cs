@@ -5,8 +5,8 @@ using DegreeProject.DB.Models.Projects;
 using DegreeProject.DB.NInject;
 using DegreeProject.DTO.Projects;
 using Ninject;
-using DegreeProject.Utilits;
-
+using AutoMapper;
+using DegreeProject.Utilit;
 
 namespace DegreeProject.DB.UnitOfWork.Project
 {
@@ -14,8 +14,9 @@ namespace DegreeProject.DB.UnitOfWork.Project
     {
         private readonly DataContext _dbContext;
         private IRepository<Standart> _standartRepository;
+        private IMapper _mapper;
 
-        
+
         public StandartUnitOfWork()
         {
             var module = new StandartModule();
@@ -25,76 +26,42 @@ namespace DegreeProject.DB.UnitOfWork.Project
             _standartRepository = kernel.Get<IRepository<Standart>>();
 
             _standartRepository.DbContext = _dbContext;
+            _mapper = kernel.Get<IMapper>();
         }
 
 
         public async Task<StandartDTO> Get(int id)
         {
-            var standart = await _standartRepository.GetById(id);
-
-            return new StandartDTO
-            {
-                Name = $"{standart.Name}",
-                CodeResourse = $"{standart.CodeResourse}",
-                NameResourse = $"{standart.NameResourse}",
-                Unit = $"{standart.Unit}",
-                UnitAmount = standart.UnitAmount,
-                LaborCostHour = standart.LaborCostHour,
-                LaborCostMachine = standart.LaborCostMachine
-            };
+            return _mapper.Map<StandartDTO>(await _standartRepository.GetById(Criptor.Decrypt(id)));
         }
 
         public async Task<IEnumerable<StandartDTO>> GetAll()
         {
             var standarts = await _standartRepository.GetAll();
-            return standarts.Select(standart => new StandartDTO
+            foreach (var standart in standarts)
             {
-                Name = $"{standart.Name}",
-                CodeResourse = $"{standart.CodeResourse}",
-                NameResourse = $"{standart.NameResourse}",
-                Unit = $"{standart.Unit}",
-                UnitAmount = standart.UnitAmount,
-                LaborCostHour = standart.LaborCostHour,
-                LaborCostMachine = standart.LaborCostMachine
-            }).ToList();
+                standart.Id = Criptor.Decrypt(standart.Id);
+            }
+            return _mapper.Map<IEnumerable<StandartDTO>>(standarts);
         }
 
         public async Task<StandartDTO> Update(int id, StandartDTO item)
         {
 
-            var standart = new Standart()
-            {
-                Id = id,
-                Name = $"{item.Name}",
-                CodeResourse = $"{item.CodeResourse}",
-                NameResourse = $"{item.NameResourse}",
-                Unit = $"{item.Unit}",
-                UnitAmount = item.UnitAmount,
-                LaborCostHour = item.LaborCostHour,
-                LaborCostMachine = item.LaborCostMachine
-            };
+            var standart = _mapper.Map<Standart>(item);
+            standart.Id = Criptor.Decrypt(id);
 
             await BeginTransaction(_dbContext);
             var result = await _standartRepository.Update(standart);
             await Commit();
             await Save(_dbContext);
 
-            return new StandartDTO()
-            {
-                Name = $"{result.Name}",
-                CodeResourse = $"{result.CodeResourse}",
-                NameResourse = $"{result.NameResourse}",
-                Unit = $"{result.Unit}",
-                UnitAmount = result.UnitAmount,
-                LaborCostHour = result.LaborCostHour,
-                LaborCostMachine = result.LaborCostMachine
-            };
-
+            return _mapper.Map<StandartDTO>(result);
         }
 
         public async Task<bool> Delete(int id)
         {
-            var standart = await _standartRepository.GetById(id);
+            var standart = await _standartRepository.GetById(Criptor.Decrypt(id));
             await BeginTransaction(_dbContext);
             _standartRepository.Delete(standart);
             await Commit();
@@ -106,36 +73,19 @@ namespace DegreeProject.DB.UnitOfWork.Project
         public async Task<StandartDTO> Add(StandartDTO item)
         {
             await BeginTransaction(_dbContext);
-            var standart = new Standart()
-            {
-                Name = $"{item.Name}",
-                CodeResourse = $"{item.CodeResourse}",
-                NameResourse = $"{item.NameResourse}",
-                Unit = $"{item.Unit}",
-                UnitAmount = item.UnitAmount,
-                LaborCostHour = item.LaborCostHour,
-                LaborCostMachine = item.LaborCostMachine
-            };
+            var standart = _mapper.Map<Standart>(item);
             var result = await _standartRepository.Add(standart);
             await Commit();
             await Save(_dbContext);
 
-            return new StandartDTO
-            {
-                Key = Encriptor.GenerateRandomKey(result.Id),
-                Name = $"{result.Name}",
-                CodeResourse = $"{result.CodeResourse}",
-                NameResourse = $"{result.NameResourse}",
-                Unit = $"{result.Unit}",
-                UnitAmount = result.UnitAmount,
-                LaborCostHour = result.LaborCostHour,
-                LaborCostMachine = result.LaborCostMachine
-            };
+            result.Id = Criptor.Encrypt(result.Id);
+
+            return _mapper.Map<StandartDTO>(result);
         }
 
         public Task<bool> Exist(int id)
         {
-            return _standartRepository.Exist(id);
+            return _standartRepository.Exist(Criptor.Decrypt(id));
         }
     }
 }
