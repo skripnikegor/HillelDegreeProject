@@ -21,6 +21,5 @@ namespace DegreeProject.DTO.Projects
         public decimal LaborCostHour { get; set; }
         [Required]
         public decimal LaborCostMachine { get; set; }
-        public string Key { get; set; }
     }
 }
