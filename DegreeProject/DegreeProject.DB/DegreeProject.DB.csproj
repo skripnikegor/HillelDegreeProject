@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DegreeProject.DTO\DegreeProject.DTO.csproj" />
+    <ProjectReference Include="..\DegreeProject.Utilits\DegreeProject.Utilits.csproj" />
   </ItemGroup>
 
 </Project>

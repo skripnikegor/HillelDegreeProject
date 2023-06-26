@@ -5,6 +5,7 @@ using DegreeProject.DB.Models.Projects;
 using DegreeProject.DB.NInject;
 using DegreeProject.DTO.Projects;
 using Ninject;
+using DegreeProject.Utilits;
 
 
 namespace DegreeProject.DB.UnitOfWork.Project
@@ -121,6 +122,7 @@ namespace DegreeProject.DB.UnitOfWork.Project
 
             return new StandartDTO
             {
+                Key = Encriptor.GenerateRandomKey(result.Id),
                 Name = $"{result.Name}",
                 CodeResourse = $"{result.CodeResourse}",
                 NameResourse = $"{result.NameResourse}",
