@@ -80,6 +80,5 @@ namespace DegreeProject.API.Controllers
 
             return Ok(result);
         }
-
     }
 }

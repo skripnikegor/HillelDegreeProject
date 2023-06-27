@@ -81,5 +81,14 @@ namespace DegreeProject.API.Controllers
             return Ok(result);
         }
 
+        //[HttpGet]
+        //[ProducesResponseType(200, Type = typeof(IEnumerable<EstimateDTO>))]
+        //public async Task<IActionResult> GetCalculatedEstiamte(int Id)
+        //{
+        //    var works = await _estimateService.GetAll();
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+        //    return Ok(works);
+        //}
     }
 }
