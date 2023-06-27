@@ -23,9 +23,7 @@ namespace DegreeProject.DB.DataContexts
         internal DbSet<ProjectBase> Projects { get; set; }
         internal DbSet<Work> Works { get; set; }
         internal DbSet<Standart> Standarts { get; set; }
-
         internal DbSet<UserBase> Users { get; set; }
-
         internal DbSet<WorksSettings> WorksSettings { get; set; }
 
 

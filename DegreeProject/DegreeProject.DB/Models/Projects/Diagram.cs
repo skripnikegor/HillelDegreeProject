@@ -11,5 +11,6 @@ namespace DegreeProject.DB.Models.Projects
         public IEnumerable<Work> Works { get; set; }
         [ForeignKey("ProjectBase")]
         public int? ProjectBaseId { get; set; }
+        public ProjectBase? Project { get; set; }
     }
 }

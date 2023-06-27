@@ -11,5 +11,6 @@ namespace DegreeProject.DTO.Projects
         public string Name { get; set; }
         //public IEnumerable<MaterialDTO> Material { get; set; }
         //public IEnumerable<WorkDTO> Work { get; set; }
+        public int? ProjectBaseId { get; set; }
     }
 }

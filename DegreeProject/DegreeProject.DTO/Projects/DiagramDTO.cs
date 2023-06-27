@@ -10,6 +10,6 @@ namespace DegreeProject.DTO.Projects
     {
         public string Name { get; set; }
         //public IEnumerable<WorkDTO> Works { get; set; }
-        //public int? ProjectId { get; set; }
+        public int? ProjectBaseId { get; set; }
     }
 }
