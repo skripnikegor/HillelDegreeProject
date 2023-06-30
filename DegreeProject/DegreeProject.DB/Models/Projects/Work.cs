@@ -13,5 +13,6 @@ namespace DegreeProject.DB.Models.Projects
         [ForeignKey("WorksSettings")]
         public int? WorksSettingsId { get; set; }
         public WorksSettings WorksSettings { get; set; }
+        public IEnumerable<Diagram> Diagrams { get; set; }
     }
 }

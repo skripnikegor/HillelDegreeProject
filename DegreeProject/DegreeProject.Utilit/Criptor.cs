@@ -8,16 +8,16 @@ namespace DegreeProject.Utilit
 {
     public static class Criptor
     {
-        private const int EncryptionKey = 967843; // Ключ шифрования
+        private const int EncryptionKey = 967843; 
 
         public static int Encrypt(int number)
         {
-            return number + EncryptionKey; // Простейший шифратор: прибавляем ключ шифрования к числу
+            return number + EncryptionKey;
         }
 
         public static int Decrypt(int encryptedNumber)
         {
-            return encryptedNumber - EncryptionKey; // Простейший дешифратор: вычитаем ключ шифрования из зашифрованного числа
+            return encryptedNumber - EncryptionKey;
         }
     }
 }
